@@ -1,0 +1,44 @@
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:14.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+    ports:
+      - $POSTGRES_PORT:$POSTGRES_PORT
+    volumes:
+      - db:/data/db
+    networks:
+      - yfood
+
+  adminer:
+    container_name: postgres-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - yfood
+
+  api-item:
+    container_name: api-item
+    depends_on:
+      - postgres
+    build: ./api-item
+    restart: unless-stopped
+    ports:
+      - 3001:3001
+    networks:
+      - yfood
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:
+
+networks:
+  yfood:
+    driver: bridge
