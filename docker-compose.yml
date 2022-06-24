@@ -23,11 +23,11 @@ services:
     networks:
       - yfood
 
-  api-item:
-    container_name: api-item
+  api:
+    container_name: api
     depends_on:
       - postgres
-    build: ./api-item
+    build: ./api
     restart: unless-stopped
     ports:
       - 3001:3001
