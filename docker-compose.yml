@@ -15,7 +15,7 @@ services:
   api:
     container_name: api
     build:
-      context: ./api
+      context: .
       dockerfile: Dockerfile
     environment:
       API_PORT: $API_PORT
