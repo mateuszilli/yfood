@@ -3,7 +3,7 @@ import { Router } from 'express'
 import { ItemController } from './controllers/item'
 import { OrderController } from './controllers/order'
 
-const router = Router();
+const router = Router()
 
 const itemController = new ItemController()
 router.post('/item', itemController.create)
