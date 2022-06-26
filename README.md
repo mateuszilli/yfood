@@ -37,10 +37,7 @@ docker-compose up -d
 curl --request POST \
   --url http://localhost:3001/item \
   --header 'Content-Type: application/json' \
-  --data '{
-	  "description": "Item",
-	  "price": 21.50
-  }'
+  --data '{ "description": "Item", "price": 21.50 }'
 ```
 
 #### Read
@@ -56,10 +53,7 @@ curl --request GET \
 curl --request PUT \
   --url http://localhost:3001/item/1 \
   --header 'Content-Type: application/json' \
-  --data '{
-	  "description": "Item"
-    "price": 22.50
-  }'
+  --data '{ "description": "Item", "price": 22.50 }'
 ```
 
 #### Delete
@@ -77,10 +71,7 @@ curl --request DELETE \
 curl --request POST \
   --url http://localhost:3001/order \
   --header 'Content-Type: application/json' \
-  --data '{
-    "note": "Order",
-    "itemsId": [1]
-  }'
+  --data '{ "note": "Order", "itemsId": [1] }'
 ```
 
 #### Read
